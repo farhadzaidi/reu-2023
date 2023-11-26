@@ -25,8 +25,8 @@ def print_metrics(sol):
 	print(f'\t{len(sol.active_sensors)} / {NUM_SENSORS} active sensors', end=' ')
 	print(f'({round(len(sol.active_sensors) / NUM_SENSORS * 100, 2)}%)')
 
-# used to evaluate fitness based on the metrics
-# of a given solution
+# used to evaluate fitness based on the 
+# metrics of a given solution
 def fitness(sol, optimal_metrics):
 	metrics = sol.get_metrics()
 	coverage_rate = metrics[0]
@@ -49,7 +49,6 @@ def fitness(sol, optimal_metrics):
 		0.024*k_coverage_rate + 0.01*inactivity)
 
 def main(quiet=False):
-
 	# initialize simulation and deploy sensors
 	SIM = Simulation(
 	grid_size=(NUM_ROWS, NUM_COLS),
@@ -93,7 +92,6 @@ def main(quiet=False):
 		# determine best solutions based on score
 		solutions.sort(reverse=True)
 		solutions = solutions[:pop_size // 5]
-
 
 		# print best solution of generation
 		best_score = solutions[0][0]

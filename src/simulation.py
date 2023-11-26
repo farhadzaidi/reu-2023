@@ -85,6 +85,12 @@ class Simulation:
 	def deactivate_random_sensors(self, num):
 		'''Randomly deactivates a given number of sensors
 		from a list of active sensors.
+
+		Args:
+			num: number of sensors to deactivate (int)
+
+		Returns:
+			None
 		'''
 		if num > len(self.active_sensors):
 			num = len(self.active_sensors)
@@ -229,13 +235,7 @@ class Simulation:
 		else:
 			return self < other
 
-	def __repr__(self):
-		RED = '\033[91m'
-		GREEN = '\033[92m'
-		YELLOW = '\033[93m'
-		BLUE = '\033[96m'
-		END = '\033[0m'
-		
+	def __repr__(self):		
 		'''Used to print the grid.
 
 		Args:
@@ -244,8 +244,13 @@ class Simulation:
 		Returns:
 			String representing the grid.
 		'''
-		res = ''
+		RED = '\033[91m'
+		GREEN = '\033[92m'
+		YELLOW = '\033[93m'
+		BLUE = '\033[96m'
+		END = '\033[0m'
 
+		res = ''
 		for r in range(len(self.grid)):
 			for c in range(len(self.grid[0])):
 				if self.grid[r][c].s_id:
